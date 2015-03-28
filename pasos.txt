@@ -1,0 +1,37 @@
+Pasos
+
+./manage.py startproject pyblog
+./manage.py startapp blog
+./manage.py migrate
+
+--settings.py--
+agregar blog a installed apps en
+
+--models.py--
+agregar articulo a models
+articulo a models.py
+
+--admin.py--
+admin.site.register(Articulo)
+
+autor a models.py
+
+./manage.py makemigrations
+./manage.py migrate
+
+admin.site.register(Autor)
+
+views.py
+return HttpResponse("Hola Mundo! Soy el home")
+
+def lista(request):
+	posts = Articulo.objects.all()
+	context = {'posts':posts}
+	return render(request, 'lista.html', context)
+
+url.py
+
+settings.py
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+mkdir templates
+mkdir blog/static/
